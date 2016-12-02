@@ -1,0 +1,23 @@
+module PixieDust
+
+imports
+
+  Common
+
+context-free start-symbols
+
+  Start
+
+context-free syntax
+
+  Start.IDs = [[{IDs "\n"}*]]
+
+  IDs.Def = [def [ID]]
+
+  IDs.Ref = [[ID]]
+
+  ID = Keyword {reject}
+
+lexical syntax
+
+  Keyword = "def"

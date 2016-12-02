@@ -1,0 +1,11 @@
+module completion
+
+imports
+
+  runtime/completion/-
+  completion/PixieDust-cp
+  pp
+
+rules
+
+  pp-completion = pp-partial-PixieDust-string

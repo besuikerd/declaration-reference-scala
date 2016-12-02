@@ -1,0 +1,26 @@
+module test
+
+language pixiedust
+
+test parse [[
+  def foo
+]] parse succeeds
+
+test parse fails [[
+  def foo ++++
+]] parse fails
+
+test resolve to [[
+  def [[foo]]
+  [[foo]]
+]] resolve #2 to #1
+
+test error on unresolved reference [[
+  def foo
+  [[bar]]
+]] 1 error at #1
+
+test error on duplicates [[
+  def [[foo]]
+  def [[foo]]
+]] 2 errors at #1,#2

@@ -1,0 +1,19 @@
+module Main
+
+imports
+
+  Syntax
+  Analysis
+
+language
+
+  extensions : pix
+
+  provider : target/metaborg/stratego.ctree
+  provider : target/metaborg/stratego-javastrat.jar
+
+//  provider : target/providers/scala-library-2.11.8.jar
+//  provider : target/providers/scalaterms-2.1.0-SNAPSHOT.jar
+//  provider : target/providers/pixiedust.scala-0.1.0-SNAPSHOT.jar
+  provider : ../scalaterms/target/scalaterms-2.1.0-SNAPSHOT.jar
+  provider : lib/pixiedust.scala-0.1.0-SNAPSHOT-with-dependencies.jar

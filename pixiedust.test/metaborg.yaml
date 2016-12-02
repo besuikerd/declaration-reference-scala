@@ -1,0 +1,9 @@
+id: org.metaborg:pixiedust.test:0.1.0-SNAPSHOT
+name: PixieDust-test
+metaborgVersion: 2.1.0-SNAPSHOT
+dependencies:
+  compile:
+  - org.metaborg:pixiedust.lang:0.1.0-SNAPSHOT
+  - org.metaborg:org.metaborg.meta.lang.spt:${metaborgVersion}
+build:
+  useBuildSystemSpec: true

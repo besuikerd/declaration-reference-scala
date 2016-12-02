@@ -1,0 +1,3 @@
+IDs(
+  [Def("foo"), Def("bar"), Ref("bar"), Ref("foo")]
+)

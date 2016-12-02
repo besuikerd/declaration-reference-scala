@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/pixiedust.eclipse.feature_0.1.0.qualifier.jar" id="pixiedust.eclipse.feature" version="0.1.0.qualifier">
+      <category name="pixiedust"/>
+   </feature>
+   <category-def name="pixiedust" label="pixiedust language Eclipse plugin">
+      <description>
+         pixiedust language Eclipse plugin.
+      </description>
+   </category-def>
+</site>

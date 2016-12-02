@@ -1,0 +1,19 @@
+module analysis
+
+rules // Analysis
+
+  external editor-analyze(|)
+
+rules // Editor services
+  
+  external editor-resolve(|)
+  
+  external editor-hover(|)
+
+rules // Debugging
+
+  debug-show-analyzed:
+    (_, _, ast, path, _) -> (filename, result)
+    with
+      filename := <guarantee-extension(|"analyzed.aterm")> path;
+      result   := ast

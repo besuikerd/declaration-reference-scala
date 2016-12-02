@@ -1,0 +1,42 @@
+module pp
+
+imports
+
+  libstratego-gpp
+  runtime/refactoring/-
+  pp/PixieDust-parenthesize
+  pp/PixieDust-pp
+
+rules
+
+  editor-format:
+    (node, _, ast, path, project-path) -> (filename, result)
+    with
+      ext      := <get-extension> path
+    ; filename := <guarantee-extension(|$[pp.[ext]])> path
+    ; result   := <pp-debug> node
+
+rules
+
+  pp-PixieDust-string =
+    parenthesize-PixieDust
+    ; prettyprint-PixieDust-start-symbols
+    ; !V([], <id>)
+    ; box2text-string(|120)
+
+  pp-partial-PixieDust-string =
+    parenthesize-PixieDust
+    ; prettyprint-PixieDust
+    ; !V([], <id>)
+    ; box2text-string(|120)
+
+  pp-debug :
+    ast -> result
+    with
+       result := <pp-PixieDust-string> ast
+    <+ <bottomup(try(not(is-string); not(is-list); not(pp-PixieDust-string); debug(!"cannot pp ")))> ast
+    ;  result := ""
+
+rules
+
+  construct-textual-change = construct-textual-change(pp-partial-PixieDust-string, parenthesize, override-reconstruction, resugar)

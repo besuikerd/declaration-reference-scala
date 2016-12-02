@@ -1,0 +1,4 @@
+---
+dependencies:
+  compile:
+  - org.metaborg:pixiedust:0.1.0-SNAPSHOT
