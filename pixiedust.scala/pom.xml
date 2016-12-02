@@ -82,7 +82,7 @@
           <descriptors>
             <descriptor>src/assembly/assembly.xml</descriptor>
           </descriptors>
-          <outputDirectory>../pixiedust.lang/lib</outputDirectory>
+          <outputDirectory>../pixiedust.lang/target/metaborg</outputDirectory>
         </configuration>
         <executions>
           <execution>

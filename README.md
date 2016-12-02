@@ -1,27 +1,18 @@
-[![Build status](http://buildfarm.metaborg.org/job/metaborgcube/job/metaborg-pixiedust/job/master/badge/icon)](http://buildfarm.metaborg.org/job/metaborgcube/job/metaborg-pixiedust/job/master/)
-
 This works at the commandline build.
 
-In Eclipse (once):
-
-1. change `editor/Main.esv` commenting out first line and uncommenting second line:
-
-```
-  provider : target/metaborg/Scalaproject-0.1.0-SNAPSHOT.jar // use this for commandline maven build
-//  provider : ../Scalaproject/target/Scalaproject-0.1.0-SNAPSHOT.jar // use this in Eclipse (bypasses the copying step by using a relative path, but only works inside eclipse)
-```
-(though, do not commit this)
-
-2. in the Scalaproject use the maven-build with `package -DskipTests` to generate a jar fast
+1. in the scala project use the maven-build with `package -DskipTests` to generate a jar fast
 
 In Eclipse (every build):
 
 1. build scalaproject with maven (generates jar)
-2. build spoofax project with spoofax (cmd+alt+b), reloads language with new jar.
+2. build spoofax project with spoofax (cmd+alt+b), reloads language with new jar. (or right click the language project -> Spoofax Meta -> Load Language)
 
-Note: after a spoofax clean the scala-library will not be there anymore, so run the full maven build in the parent pom file.
+
+Currently the project uses a bleeding edge version of scalaterms, so you have to build it yourself. You have two options:
+
+1. Add the scalaterms project to eclipse and use a relative path in `pixiedust.lang/editor/Main.esv` (breaks commandline build)
+2. Build scalaterms independently and include the artifact in `pixiedust.scala/src/assembly/assembly.xml`. This will bundle it along with the scala standard library and the `pixiedust.scala` project.
+
 
 Suggestion:
-- bind `Run Maven Build` to shortkey, for example `Ctrl+Alt+B` (on mac) 
-
-Documentation on Scala with Spoofax 1.5 Ant build: https://github.com/stg-tud/type-pragmatics/blob/master/spoofax-scala-interop/Spoofax%20and%20Scala.md
+- bind `Run Maven Build` to shortkey, for example `Ctrl+Alt+B` (on mac)
